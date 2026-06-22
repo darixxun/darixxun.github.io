@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>t.me/uaxru</title>
+    <title>Рандомная кнопка</title>
     <style>
         html, body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            background-color: #fff; /* Цвет фона страницы */
+            background-color: #fff;
             overflow: hidden;
             display: flex;
             justify-content: center;
@@ -19,10 +19,10 @@
 
         .iframe-container {
             position: relative;
-            width: 110px;  /* Исходный размер блока эмбеда */
-            height: 150px; /* Обрезаем лишний текст снизу кнопки */
+            width: 110px;  
+            height: 150px; 
             overflow: hidden;
-            /* Увеличиваем кнопку в 4.5 раза. Если мало или много — измени цифру ниже */
+            /* Кнопка увеличена в 4.5 раза, как в прошлый раз */
             transform: scale(4.5); 
             transform-origin: center center;
         }
@@ -37,9 +37,28 @@
 <body>
 
     <div class="iframe-container">
-        <iframe src="https://www.myinstants.com/instant/ston-250-10009/embed/" scrolling="no"></iframe>
+        <!-- id="random-button" нужен, чтобы JavaScript нашел этот iframe -->
+        <iframe id="random-button" src="" scrolling="no"></iframe>
     </div>
+
+    <script>
+        // Список твоих ссылок
+        const buttons = [
+            "https://www.myinstants.com/instant/vykliuchi-ego-nakhu-12313/embed/",
+            "https://www.myinstants.com/instant/zelenskii-42468/embed/",
+            "https://www.myinstants.com/instant/ston-250-10009/embed/",
+            "https://www.myinstants.com/instant/sela-dala-27691/embed/",
+            "https://www.myinstants.com/instant/vakh-mama-dzhan-41020/embed/",
+            "https://www.myinstants.com/instant/yara-yara-phonk-16631/embed/"
+        ];
+
+        // Выбираем случайную ссылку из массива
+        const randomIndex = Math.floor(Math.random() * buttons.length);
+        const randomUrl = buttons[randomIndex];
+
+        // Вставляем её в iframe
+        document.getElementById('random-button').src = randomUrl;
+    </script>
 
 </body>
 </html>
-
